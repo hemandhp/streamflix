@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: streamflix-api
+  codec:
+    max-in-memory-size: 20MB
+
+streamflix:
+  playlist:
+    # Master iptv-org index of every publicly listed channel.
+    # Swap for a smaller regional/category playlist (see https://github.com/iptv-org/iptv#playlists)
+    # if you want a lighter catalog while developing.
+    url: https://iptv-org.github.io/iptv/index.m3u
+    refresh-interval-ms: 21600000 # 6 hours
+    connect-timeout-ms: 15000
+    read-timeout-ms: 30000
+  cors:
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173
+  proxy:
+    # Streams referenced by the playlist are third-party and untrusted -
+    # only allow the proxy to fetch http(s) URLs, cap redirects/size, etc.
+    enabled: true
+    max-redirects: 5
+
+logging:
+  level:
+    com.streamflix.api: INFO
