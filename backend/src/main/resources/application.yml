@@ -17,7 +17,7 @@ streamflix:
     connect-timeout-ms: 15000
     read-timeout-ms: 30000
   cors:
-    allowed-origins: http://localhost:5173,http://127.0.0.1:5173
+  allowed-origins: http://localhost:5174,https://streamflix-i9nhgi9y8-hareeshpepe321-1555s-projects.vercel.app
   proxy:
     # Streams referenced by the playlist are third-party and untrusted -
     # only allow the proxy to fetch http(s) URLs, cap redirects/size, etc.
